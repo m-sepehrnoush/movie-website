@@ -1,0 +1,243 @@
+
+<head>
+    <meta charset="utf-8">
+    <title>Fresh Tomatoes!</title>
+
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <style type="text/css" media="screen">
+        body {
+            padding-top: 80px;
+            background-color: black;
+        }
+
+        #trailer .modal-dialog {
+            margin-top: 200px;
+            width: 640px;
+            height: 480px;
+        }
+        .hanging-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            z-index: 9001;
+        }
+        #trailer-video {
+            width: 100%;
+            height: 100%;
+        }
+        .movie-tile {
+            margin-bottom: 10px;
+            padding-top: 10px;
+         }
+
+        .movie-tile:hover {
+            background-color: #8fc47f;
+            cursor: pointer;
+        }
+        
+        .scale-media {
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+        .scale-media iframe {
+            border: none;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: #8fc47f;
+        }
+    </style>
+    <script type="text/javascript" charset="utf-8">
+        // Pause the video when the modal is closed
+        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
+            // Remove the src so the player itself gets removed, as this is the only
+            // reliable way to ensure the video stops playing in IE
+            $("#trailer-video-container").empty();
+        });
+        // Start playing the video whenever the trailer modal is opened
+        $(document).on('click', '.movie-tile', function (event) {
+            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+              'id': 'trailer-video',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }));
+        });
+        // Animate in the movies when the page loads
+        $(document).ready(function () {
+          $('.movie-tile').hide().first().show("fast", function showNext() {
+            $(this).next("div").show("fast", showNext);
+          });
+        });
+    </script>
+</head>
+
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <!-- Trailer Video Modal -->
+    <div class="modal" id="trailer">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          </a>
+          <div class="scale-media" id="trailer-video-container">
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Main Page Content -->
+    <div class="container">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#"><font color=#8fc47f>Fresh Tomatoes Movie Trailers</font></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container" >
+      
+<div class="col-md-1 col-lg-10 movie-tile text-center" data-trailer-youtube-id="Y8MXn5No1Jc" data-toggle="modal" data-target="#trailer">
+   <table>
+        <tr>
+            <td rowspan="2"><img src="https://upload.wikimedia.org/wikipedia/en/e/e9/Lock%2C_Stock_and_Two_Smoking_Barrels_2.jpg" width="220" height="342"></td>
+            <td rowspan="2" width ="20"></td>
+            <th><h2><font face="Times New Roman" color="white"><b>Lock, Stock and Two Smoking Barrels</b></font></h2></th>
+        </tr>
+        <tr>
+            <td><font face="Times New Roman" color="white">Lock, Stock and Two Smoking Barrels is a 1998 British crime comedy film written and directed by Guy Ritchie. The story is a heist film involving a self-confident young card sharp who loses &pound500,000 to a powerful crime lord in a rigged game of three card brag. To pay off his debts, he and his friends decide to rob a small-time gang who happen to be operating out of the flat next door.</font></td>
+        </tr>
+    </table>
+</div>
+
+<div class="col-md-1 col-lg-10 movie-tile text-center" data-trailer-youtube-id="yRABrgRcn5Y" data-toggle="modal" data-target="#trailer">
+   <table>
+        <tr>
+            <td rowspan="2"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/03/Leon-poster.jpg/220px-Leon-poster.jpg" width="220" height="342"></td>
+            <td rowspan="2" width ="20"></td>
+            <th><h2><font face="Times New Roman" color="white"><b>Leon: The Professional</b></font></h2></th>
+        </tr>
+        <tr>
+            <td><font face="Times New Roman" color="white">Leon: The Professional (French: Leon; also known as The Professional) is a 1994 English-language French thriller film written and directed by Luc Besson. It stars Jean Reno and Gary Oldman, and features the motion picture debut of Natalie Portman. In the film Leon (Reno), a professional hitman, reluctantly takes in 12-year-old girl Mathilda (Portman), after her family is murdered by corrupt Drug Enforcement Administration agent Norman Stansfield (Oldman). Leon and Mathilda form an unusual relationship, as she becomes his protegee and learns the hitman's trade.</font></td>
+        </tr>
+    </table>
+</div>
+
+<div class="col-md-1 col-lg-10 movie-tile text-center" data-trailer-youtube-id="oiXdPolca5w" data-toggle="modal" data-target="#trailer">
+   <table>
+        <tr>
+            <td rowspan="2"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9c/Usual_suspects_ver1.jpg/220px-Usual_suspects_ver1.jpg" width="220" height="342"></td>
+            <td rowspan="2" width ="20"></td>
+            <th><h2><font face="Times New Roman" color="white"><b>The Usual Suspects</b></font></h2></th>
+        </tr>
+        <tr>
+            <td><font face="Times New Roman" color="white">The Usual Suspects is a 1995 American neo-noir crime thriller film directed by Bryan Singer and written by Christopher McQuarrie. It stars Stephen Baldwin, Gabriel Byrne, Benicio del Toro, Kevin Pollak, Chazz Palminteri, Pete Postlethwaite and Kevin Spacey. The film follows the interrogation of Roger 'Verbal' Kint, a small-time con man who is one of only two survivors of a massacre and fire on a ship docked at the Port of Los Angeles. He tells an interrogator a convoluted story about events that led him and his partners in crime to the boat, and about a mysterious mob boss known as Keyser Soze who commissioned their work. Using flashback and narration, Kint's story becomes increasingly complex.</font></td>
+        </tr>
+    </table>
+</div>
+
+<div class="col-md-1 col-lg-10 movie-tile text-center" data-trailer-youtube-id="eajuMYNYtuY" data-toggle="modal" data-target="#trailer">
+   <table>
+        <tr>
+            <td rowspan="2"><img src="https://upload.wikimedia.org/wikipedia/en/8/85/Terminator2poster.jpg" width="220" height="342"></td>
+            <td rowspan="2" width ="20"></td>
+            <th><h2><font face="Times New Roman" color="white"><b>Terminator 2: Judgment Day</b></font></h2></th>
+        </tr>
+        <tr>
+            <td><font face="Times New Roman" color="white">Terminator 2: Judgment Day (also referred to as simply Terminator 2 or T2) is a 1991 American science fiction action film co-written, produced and directed by James Cameron. The film stars Arnold Schwarzenegger, Linda Hamilton, Robert Patrick and Edward Furlong. It is the sequel to the 1984 film The Terminator, and the second installment in the Terminator franchise. Terminator 2 follows Sarah Connor (Hamilton) and her ten-year-old son John (Furlong) as they are pursued by a new, more advanced Terminator, the liquid metal, shapeshifting T-1000 (Patrick), sent back in time to kill John Connor and prevent him from becoming the leader of the human resistance. A second, less advanced Terminator (Schwarzenegger) is also sent back in time to protect John.</font></td>
+        </tr>
+    </table>
+</div>
+
+<div class="col-md-1 col-lg-10 movie-tile text-center" data-trailer-youtube-id="k_13fFIrhPk" data-toggle="modal" data-target="#trailer">
+   <table>
+        <tr>
+            <td rowspan="2"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c0/V_for_vendettax.jpg/250px-V_for_vendettax.jpg" width="220" height="342"></td>
+            <td rowspan="2" width ="20"></td>
+            <th><h2><font face="Times New Roman" color="white"><b>V for Vendetta</b></font></h2></th>
+        </tr>
+        <tr>
+            <td><font face="Times New Roman" color="white">V for Vendetta is a graphic novel written by Alan Moore and illustrated by David Lloyd (with additional art by Tony Weare), published by Vertigo, an imprint of DC Comics. The story depicts a dystopian and post-apocalyptic near-future history version of the United Kingdom in the 1990s, preceded by a nuclear war in the 1980s, which has left most of the world destroyed. The fascist Norsefire party has exterminated its opponents in concentration camps and rules the country as a police state. The comics follow its titular character and protagonist, V, an anarchist revolutionary dressed in a Guy Fawkes mask, as he begins an elaborate and theatrical revolutionist campaign to murder his former captors, bring down the government and convince the people to rule themselves, while inspiring a young woman, Evey Hammond, to be his protege.</font></td>
+        </tr>
+    </table>
+</div>
+
+<div class="col-md-1 col-lg-10 movie-tile text-center" data-trailer-youtube-id="KnrRy6kSFF0" data-toggle="modal" data-target="#trailer">
+   <table>
+        <tr>
+            <td rowspan="2"><img src="https://upload.wikimedia.org/wikipedia/en/c/c3/Inglourious_Basterds_poster.jpg" width="220" height="342"></td>
+            <td rowspan="2" width ="20"></td>
+            <th><h2><font face="Times New Roman" color="white"><b>Inglourious Basterds</b></font></h2></th>
+        </tr>
+        <tr>
+            <td><font face="Times New Roman" color="white">Inglourious Basterds is a 2009 American war film written and directed by Quentin Tarantino and starring Brad Pitt, Christoph Waltz, Diane Kruger, Michael Fassbender and Eli Roth. The film tells the fictional alternate history story of two plots to assassinate Nazi Germany's political leadership, one planned by a young French Jewish cinema proprietor, and the other by a team of Jewish-American soldiers led by First Lieutenant Aldo Raine. The film's title was inspired by director Enzo G. Castellari's macaroni combat film, The Inglorious Bastards (1978).</font></td>
+        </tr>
+    </table>
+</div>
+
+<div class="col-md-1 col-lg-10 movie-tile text-center" data-trailer-youtube-id="eUdM9vrCbow" data-toggle="modal" data-target="#trailer">
+   <table>
+        <tr>
+            <td rowspan="2"><img src="https://upload.wikimedia.org/wikipedia/en/8/8b/Django_Unchained_Poster.jpg" width="220" height="342"></td>
+            <td rowspan="2" width ="20"></td>
+            <th><h2><font face="Times New Roman" color="white"><b>Django Unchained</b></font></h2></th>
+        </tr>
+        <tr>
+            <td><font face="Times New Roman" color="white">Django Unchained is a 2012 American western film written and directed by Quentin Tarantino. Set in the Old West and Antebellum South, it is a highly stylized variation of the spaghetti Western. The film stars Jamie Foxx, Christoph Waltz, Leonardo DiCaprio, Kerry Washington, and Samuel L. Jackson. The story is set in early winter and the following spring, during the antebellum era of the Deep South, with preliminary scenes taking place in Old West Texas. The film follows Django (Foxx), an African-American slave, and Dr. King Schultz (Waltz), an English-speaking German bounty hunter posing as a traveling dentist. Schultz buys and then promises to free Django in exchange for his help in collecting a large bounty on three outlaws. Schultz subsequently promises to teach Django bounty hunting, and split the bounties with him, if Django assists him in hunting down other outlaws throughout the winter. He further offers to help Django to locate and free his long-lost wife (Washington) from her cruel plantation owner (DiCaprio).</font></td>
+        </tr>
+    </table>
+</div>
+
+<div class="col-md-1 col-lg-10 movie-tile text-center" data-trailer-youtube-id="-Jxp1AqoSeM" data-toggle="modal" data-target="#trailer">
+   <table>
+        <tr>
+            <td rowspan="2"><img src="https://upload.wikimedia.org/wikipedia/en/6/68/Seven_%28movie%29_poster.jpg" width="220" height="342"></td>
+            <td rowspan="2" width ="20"></td>
+            <th><h2><font face="Times New Roman" color="white"><b>SE7EN</b></font></h2></th>
+        </tr>
+        <tr>
+            <td><font face="Times New Roman" color="white">Seven (sometimes stylized as SE7EN) is a 1995 American neo-noir crime psychological thriller film directed by David Fincher, and stars Brad Pitt, Morgan Freeman, Gwyneth Paltrow, John C. McGinley, R. Lee Ermey and Kevin Spacey. The film was based on a screenplay by Andrew Kevin Walker. The film follows a newly transferred David Mills (Pitt) and the soon-to-retire William Somerset (Freeman), two homicide detectives who become deeply involved in the case of a sadistic serial killer whose meticulously planned murders correspond to the seven deadly sins: gluttony, greed, sloth, wrath, pride, lust and envy.</font></td>
+        </tr>
+    </table>
+</div>
+
+<div class="col-md-1 col-lg-10 movie-tile text-center" data-trailer-youtube-id="5ZAhzsi1ybM" data-toggle="modal" data-target="#trailer">
+   <table>
+        <tr>
+            <td rowspan="2"><img src="https://upload.wikimedia.org/wikipedia/en/8/82/Pulp_Fiction_cover.jpg" width="220" height="342"></td>
+            <td rowspan="2" width ="20"></td>
+            <th><h2><font face="Times New Roman" color="white"><b>Pulp Fiction</b></font></h2></th>
+        </tr>
+        <tr>
+            <td><font face="Times New Roman" color="white">Pulp Fiction is a 1994 American black comedy crime film written and directed by Quentin Tarantino, from a story by Tarantino and Roger Avary. The film is known for its eclectic dialogue, ironic mix of humor and violence, nonlinear storyline, and a host of cinematic allusions and pop culture references. The film was nominated for seven Oscars, including Best Picture; Tarantino and Avary won for Best Original Screenplay. It was also awarded the Palme d'Or at the 1994 Cannes Film Festival. A major critical and commercial success, it revitalized the career of its leading man, John Travolta, who received an Academy Award nomination, as did co-stars Samuel L. Jackson and Uma Thurman.</font></td>
+        </tr>
+    </table>
+</div>
+
+<div class="col-md-1 col-lg-10 movie-tile text-center" data-trailer-youtube-id="_XgQA9Ab0Gw" data-toggle="modal" data-target="#trailer">
+   <table>
+        <tr>
+            <td rowspan="2"><img src="https://upload.wikimedia.org/wikipedia/en/f/fc/Fight_Club_poster.jpg" width="220" height="342"></td>
+            <td rowspan="2" width ="20"></td>
+            <th><h2><font face="Times New Roman" color="white"><b>Fight Club</b></font></h2></th>
+        </tr>
+        <tr>
+            <td><font face="Times New Roman" color="white">Fight Club is a 1999 film based on the 1996 novel of the same name by Chuck Palahniuk. The film was directed by David Fincher, and stars Brad Pitt, Edward Norton and Helena Bonham Carter. Norton plays the unnamed protagonist, an everyman who is discontented with his white-collar job. He forms a fight club with soap maker Tyler Durden, played by Pitt, and they are joined by men who also want to fight recreationally. The narrator becomes embroiled in a relationship with Durden and a dissolute woman, Marla Singer, played by Bonham Carter.</font></td>
+        </tr>
+    </table>
+</div>
+
+    </div>
+  </body>
+</html>
